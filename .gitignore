@@ -1,0 +1,8 @@
+.venv/
+static/
+main/
+config/
+*.sqlite3
+*.py
+*.lock
+*.toml
