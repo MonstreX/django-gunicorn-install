@@ -1,0 +1,19 @@
+[Unit]
+Description=gunicorn django-install2.com service
+After=network.target
+Requires=gunicorn.django-install2.com.socket
+
+[Service]
+User=monstre
+Group=www-data
+
+WorkingDirectory=/var/www/django-install2.com
+ExecStart=/var/www/django-install2.com/.venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 5 \
+          --bind unix:/run/gunicorn.django-install2.com.sock config.wsgi:application \
+          --access-logfile /var/www/django-install2.com/.gunicorn/access.log \
+          --error-logfile /var/www/django-install2.com/.gunicorn/error.log
+
+[Install]
+WantedBy=multi-user.target

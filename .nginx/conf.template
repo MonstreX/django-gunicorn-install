@@ -5,11 +5,11 @@ server {
     location = /favicon.ico { access_log off; log_not_found off; }
 
     location /static/ {
-        alias %project_path%/static/;
+        alias %django_path%/static/;
     }
 
     location /media/ {
-        alias %project_path%/media/;
+        alias %django_path%/media/;
     }
 
     location / {

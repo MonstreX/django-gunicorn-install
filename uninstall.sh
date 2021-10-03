@@ -7,10 +7,12 @@ NC='\033[0m' # No Color
 project_path=`pwd`
 project_domain=""
 default_domain=`basename "$project_path"`
-
+centos=`cat /etc/os-release | grep 'CentOS'`
 
 # get domain name
-read -p "Your domain without protocol (example.com) or press Enter to use $default_domain: " project_domain
+# get domain name
+echo -e "${GREEN}Detect default domain: ${BLUE}$default_domain${NC}"
+read -p "Press Enter to use default domain or enter other domain name: " project_domain
 
 if [[ -z $project_domain ]]; then
     project_domain=$default_domain
@@ -23,6 +25,7 @@ if [ "$answer" == "${answer#[YyДд]}" ] ;then
 fi
 
 echo -e "${BLUE}Uninstalling services...${NC}"
+printf %"$(tput cols)"s |tr " " "-"
 
 sudo service nginx stop
 sudo systemctl disable gunicorn.${project_domain}.socket
@@ -35,10 +38,15 @@ sudo rm .gunicorn/gunicorn.${project_domain}.socket
 sudo rm .gunicorn/gunicorn.${project_domain}.service
 sudo rm /run/gunicorn.${project_domain}.sock
 
-sudo rm /etc/nginx/sites-enabled/${project_domain}.conf
+if [[ -z $centos ]]; then
+    sudo rm /etc/nginx/sites-enabled/${project_domain}.conf
+else
+    sudo rm /etc/nginx/conf.d/${project_domain}.conf
+fi
 
 sudo service nginx start
 sudo systemctl daemon-reload
 
+printf %"$(tput cols)"s |tr " " "-"
 echo -e "${BLUE}Done...${NC}"
 
