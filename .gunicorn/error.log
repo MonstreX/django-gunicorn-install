@@ -1,8 +1,0 @@
-[2021-10-03 04:22:02 -0500] [13512] [INFO] Starting gunicorn 20.1.0
-[2021-10-03 04:22:02 -0500] [13512] [INFO] Listening at: unix:/run/gunicorn.django-install2.com.sock (13512)
-[2021-10-03 04:22:02 -0500] [13512] [INFO] Using worker: sync
-[2021-10-03 04:22:02 -0500] [13519] [INFO] Booting worker with pid: 13519
-[2021-10-03 04:22:02 -0500] [13520] [INFO] Booting worker with pid: 13520
-[2021-10-03 04:22:03 -0500] [13521] [INFO] Booting worker with pid: 13521
-[2021-10-03 04:22:03 -0500] [13522] [INFO] Booting worker with pid: 13522
-[2021-10-03 04:22:03 -0500] [13523] [INFO] Booting worker with pid: 13523

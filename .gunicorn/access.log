@@ -1,2 +1,0 @@
- - - [03/Oct/2021:09:22:03 +0000] "GET / HTTP/1.1" 200 10697 "-" "curl/7.74.0"
- - - [03/Oct/2021:09:22:06 +0000] "GET / HTTP/1.0" 200 10697 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36 OPR/79.0.4143.50"
